@@ -1,11 +1,131 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Taco Cloud</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Taco Cloud – Home</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <style>
+        /* ── HOME-ONLY STYLES ─────────────────────── */
+        .home-hero {
+            min-height: 100vh;
+            background: linear-gradient(150deg, #1d1f27 0%, #2d1a0e 50%, #e63946 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* decorative background tacos */
+        .home-hero::before,
+        .home-hero::after {
+            content: '🌮';
+            font-size: 18rem;
+            opacity: .04;
+            position: absolute;
+            pointer-events: none;
+            line-height: 1;
+        }
+        .home-hero::before { top: -3rem; left: -3rem; }
+        .home-hero::after  { bottom: -3rem; right: -3rem; transform: rotate(180deg); }
+
+        .home-hero img.logo {
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 16px rgba(0,0,0,.5));
+            margin-bottom: 1.5rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0);    }
+            50%       { transform: translateY(-10px); }
+        }
+
+        .home-hero h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            color: #fff;
+            text-shadow: 0 4px 20px rgba(0,0,0,.4);
+            margin-bottom: .5rem;
+        }
+
+        .home-hero h1 span {
+            color: #f4a261;
+        }
+
+        .home-hero p.subtitle {
+            font-family: 'Nunito', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: rgba(255,255,255,.75);
+            max-width: 480px;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: linear-gradient(135deg, #f4a261, #e63946);
+            color: #fff;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.15rem;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 24px rgba(230,57,70,.45);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 32px rgba(230,57,70,.55);
+        }
+
+        .cta-btn:active { transform: translateY(0) scale(1); }
+
+        .features {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .feature-pill {
+            background: rgba(255,255,255,.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 50px;
+            padding: .5rem 1.2rem;
+            color: rgba(255,255,255,.85);
+            font-family: 'Nunito', sans-serif;
+            font-size: .9rem;
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to...</h1>
-<img th:src="@{/images/TacoCloud.png}"/>
+
+<div class="home-hero">
+    <img class="logo" th:src="@{/images/TacoCloud.png}" alt="Taco Cloud Logo"/>
+    <h1>Welcome to <span>Taco Cloud</span></h1>
+    <p class="subtitle">
+        Build your perfect taco from scratch — pick your wrap, protein, cheese, veggies, and sauce. Your masterpiece awaits.
+    </p>
+    <a href="/design" class="cta-btn">Design Your Taco 🌮</a>
+    <div class="features">
+        <span class="feature-pill">🌯 Fresh Wraps</span>
+        <span class="feature-pill">🥩 Bold Proteins</span>
+        <span class="feature-pill">🧀 Melty Cheese</span>
+        <span class="feature-pill">🥦 Crisp Veggies</span>
+        <span class="feature-pill">🫙 Killer Sauces</span>
+    </div>
+</div>
+
 </body>
 </html>
