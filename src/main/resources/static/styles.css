@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red:    #e63946;
+  --orange: #f4a261;
+  --yellow: #e9c46a;
+  --green:  #2a9d8f;
+  --dark:   #1d1f27;
+  --card:   #ffffff;
+  --muted:  #f0ece3;
+  --shadow: 0 4px 20px rgba(0,0,0,.12);
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--muted);
+  color: var(--dark);
+  min-height: 100vh;
+}
+
+/* ── HERO HEADER ─────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--red) 0%, var(--orange) 60%, var(--yellow) 100%);
+  text-align: center;
+  padding: 2.5rem 1rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '🌮';
+  font-size: 10rem;
+  opacity: .08;
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.hero img.logo {
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+  margin-bottom: .75rem;
+}
+
+.hero h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.25);
+  letter-spacing: 1px;
+}
+
+.hero p.tagline {
+  color: rgba(255,255,255,.9);
+  font-size: 1.05rem;
+  margin-top: .4rem;
+}
+
+/* ── MAIN LAYOUT ─────────────────────────────── */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* ── INGREDIENT GRID ─────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.ingredient-group {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 1.25rem 1.1rem 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.ingredient-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.16);
+}
+
+/* coloured top stripe per group */
+#wraps    { border-top: 4px solid var(--orange); }
+#proteins { border-top: 4px solid var(--red);    }
+#cheeses  { border-top: 4px solid var(--yellow); }
+#veggies  { border-top: 4px solid var(--green);  }
+#sauces   { border-top: 4px solid #c77dff;       }
+
+.ingredient-group h3 {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+/* ── CHECKBOX ITEMS ──────────────────────────── */
+.ingredient-group label {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .45rem .5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: .95rem;
+  font-weight: 600;
+  transition: background .15s;
+}
+
+.ingredient-group label:hover { background: var(--muted); }
+
+.ingredient-group input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  position: relative;
+}
+
+.ingredient-group input[type="checkbox"]:checked {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.ingredient-group input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: 5px;
+  width: 6px; height: 10px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* ── NAME & SUBMIT CARD ──────────────────────── */
+.name-section {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.name-section h3 {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.25rem;
+  color: var(--red);
+  flex: 0 0 100%;
+}
+
+.name-section input[type="text"] {
+  flex: 1 1 260px;
+  padding: .75rem 1rem;
+  border: 2px solid #e0dbd2;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  background: var(--muted);
+}
+
+.name-section input[type="text"]:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(244,162,97,.25);
+  background: #fff;
+}
+
+.name-section button {
+  padding: .75rem 2rem;
+  background: linear-gradient(135deg, var(--red), var(--orange));
+  color: #fff;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(230,57,70,.35);
+  transition: transform .15s, box-shadow .15s;
+  white-space: nowrap;
+}
+
+.name-section button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230,57,70,.45);
+}
+
+.name-section button:active { transform: translateY(0); }
+
+/* ── VALIDATION ERRORS ───────────────────────── */
+.error {
+  color: var(--red);
+  font-size: .82rem;
+  font-weight: 700;
+  margin-top: .25rem;
+}
