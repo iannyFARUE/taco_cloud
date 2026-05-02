@@ -188,11 +188,11 @@
 
     <a th:href="@{/design}" class="design-link">← Design another taco</a>
 
-    <div class="validation-banner" th:if="${#fields.hasErrors()}">
-        ⚠️ Please correct the problems below and resubmit.
-    </div>
-
     <form method="POST" th:action="@{/orders}" th:object="${order}">
+
+        <div class="validation-banner" th:if="${#fields.hasErrors('*')}">
+            ⚠️ Please correct the problems below and resubmit.
+        </div>
 
         <!-- Delivery details -->
         <div class="form-card delivery">
