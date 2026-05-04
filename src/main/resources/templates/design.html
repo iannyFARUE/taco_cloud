@@ -75,6 +75,12 @@
         <div class="name-section">
             <h3>Name your masterpiece</h3>
             <input type="text" th:field="*{name}" placeholder="e.g. The Inferno Supreme"/>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}">Name Error</span>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('ingredients')}"
+                  th:errors="*{ingredients}">Ingredients Error</span>
             <button type="submit">Submit Taco 🌮</button>
         </div>
 

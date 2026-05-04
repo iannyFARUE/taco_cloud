@@ -208,9 +208,11 @@ main {
 .name-section button:active { transform: translateY(0); }
 
 /* ── VALIDATION ERRORS ───────────────────────── */
-.error {
+.error,
+.validationError {
   color: var(--red);
   font-size: .82rem;
   font-weight: 700;
   margin-top: .25rem;
+  display: block;
 }
