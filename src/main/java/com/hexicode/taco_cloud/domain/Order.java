@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+import org.hibernate.validator.constraints.CreditCardNumber;
 
 @Data
 public class Order {
@@ -23,7 +24,7 @@ public class Order {
     @NotBlank(message = "Zip code is required")
     private String zip;
 
-    @NotBlank(message = "Card number is required")
+    @CreditCardNumber(message = "Card number is required")
     private String ccNumber;
 
     @Pattern(regexp = "^(0[1-9]|1[0-2])/([0-9]{2})$", message = "Must be formatted MM/YY")
