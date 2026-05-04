@@ -203,6 +203,9 @@
                     <label for="name">Full Name</label>
                     <input type="text" th:field="*{name}" placeholder="Jane Smith"
                            th:classappend="${#fields.hasErrors('name')} ? 'field-error'"/>
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('name')}"
+                          th:errors="*{name}">Name Error</span>
                 </div>
             </div>
 
@@ -211,6 +214,9 @@
                     <label for="street">Street Address</label>
                     <input type="text" th:field="*{street}" placeholder="123 Taco Lane"
                            th:classappend="${#fields.hasErrors('street')} ? 'field-error'"/>
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('street')}"
+                          th:errors="*{street}">Street Error</span>
                 </div>
             </div>
 
@@ -219,11 +225,17 @@
                     <label for="city">City</label>
                     <input type="text" th:field="*{city}" placeholder="Tacoville"
                            th:classappend="${#fields.hasErrors('city')} ? 'field-error'"/>
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('city')}"
+                          th:errors="*{city}">City Error</span>
                 </div>
                 <div class="field">
                     <label for="state">State</label>
                     <input type="text" th:field="*{state}" placeholder="TX"
                            th:classappend="${#fields.hasErrors('state')} ? 'field-error'"/>
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('state')}"
+                          th:errors="*{state}">State Error</span>
                 </div>
             </div>
 
@@ -232,6 +244,9 @@
                     <label for="zip">Zip Code</label>
                     <input type="text" th:field="*{zip}" placeholder="78201"
                            th:classappend="${#fields.hasErrors('zip')} ? 'field-error'"/>
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('zip')}"
+                          th:errors="*{zip}">Zip Error</span>
                 </div>
             </div>
         </div>
@@ -245,6 +260,9 @@
                     <label for="ccNumber">Card Number</label>
                     <input type="text" th:field="*{ccNumber}" placeholder="•••• •••• •••• ••••"
                            th:classappend="${#fields.hasErrors('ccNumber')} ? 'field-error'"/>
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('ccNumber')}"
+                          th:errors="*{ccNumber}">CC Number Error</span>
                 </div>
             </div>
 
@@ -253,11 +271,17 @@
                     <label for="ccExpiration">Expiration</label>
                     <input type="text" th:field="*{ccExpiration}" placeholder="MM/YY"
                            th:classappend="${#fields.hasErrors('ccExpiration')} ? 'field-error'"/>
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('ccExpiration')}"
+                          th:errors="*{ccExpiration}">Expiration Error</span>
                 </div>
                 <div class="field">
                     <label for="ccCVV">CVV</label>
                     <input type="text" th:field="*{ccCVV}" placeholder="•••"
                            th:classappend="${#fields.hasErrors('ccCVV')} ? 'field-error'"/>
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('ccCVV')}"
+                          th:errors="*{ccCVV}">CVV Error</span>
                 </div>
             </div>
         </div>
